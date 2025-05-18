@@ -167,7 +167,7 @@ strong {
       </p>
   
       <p style="text-align: center;">
-        <a href="sinscire.html" class="cta-button">Inscription</a>
+        <a href="https://manuel-honey001.github.io/after-school-site/" class="cta-button">Inscription</a>
     </p>
   </div>
 
