@@ -1,11 +1,13 @@
-<!DOCTYPE html><html lang="fr">
+
+<! After School day><html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AFTER SCHOOL - Sortie Plage</title>
   <style>
     body {
-      background: linear-gradient(to top, #cce5ff, #ffffff);
+      background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+      background-size: cover;
       font-family: 'Segoe UI', Arial, sans-serif;
       margin: 0;
       padding: 0;
@@ -43,6 +45,18 @@ h2 {
   text-align: center;
   color: #045f94;
   margin-bottom: 20px;
+}
+
+.countdown {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #0b3c5d;
+  margin: 20px auto;
+  padding: 12px;
+  border-radius: 10px;
+  background: #e0f7fa;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .info-block {
@@ -106,10 +120,12 @@ h2 {
 </head>
 <body>
   <div class="affiche">
-    <img src="/mnt/data/file-TigdfrZKTq7GNpDMGLXtQj" alt="Affiche After School plage" class="affiche-img">
+    <img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Affiche After School plage" class="affiche-img">
   </div>  <div class="container">
     <h1>AFTER SCHOOL</h1>
-    <h2>Sortie plage - 21 Juin 2025</h2><div class="info-block">
+    <h2>Sortie plage - 21 Juin 2025</h2><div class="countdown" id="countdown"></div>
+
+<div class="info-block">
   Le <strong>collège des délégués de la licence 2 de GÉOGRAPHIE</strong> organise la <strong>1ère Édition</strong> de <br>
   <strong>AFTER SCHOOL - Au bord de l'eau</strong>, de <strong>08H à 21H</strong> à l'<strong>ESPACE DAYENA, Songon</strong>.
 </div>
@@ -135,6 +151,26 @@ h2 {
 
 <a href="https://manuel-honey001.github.io/after-school-site/" class="cta-button">S'inscrire maintenant</a>
 
-  </div>
-</body>
+  </div>  <script>
+    const countdown = document.getElementById('countdown');
+    const eventDate = new Date("2025-06-21T08:00:00").getTime();
+
+    const timer = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      if (distance < 0) {
+        clearInterval(timer);
+        countdown.innerHTML = "C'est le jour J !";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdown.innerHTML = `${days} j ${hours} h ${minutes} min ${seconds} s avant l'évènement`;
+    }, 1000);
+  </script></body>
 </html>
